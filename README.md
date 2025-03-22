@@ -1,3 +1,1 @@
-Alx-AI-Chat-Bot
-https://github.com/alexkusum/Alx-AI-Chat-Bot/
-https://aichat.alxwebtech.com/
+Alx-AI-Chat-Bot< br / >https://aichat.alxwebtech.com/
