@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Kusum's AI Chat Bot | Intelligent Virtual Assistant by AI Developer Alex Kusum</title>
+    <meta name="description" content="Created by Alex Kusum, this advanced AI chatbot demonstrates cutting-edge conversational AI technology. Get instant solutions from Alex Kusum's intelligent chatbot creation.">
+    <meta name="keywords" content="Alex Kusum, AI chatbot developer, Kusum chatbot, AI assistant, conversational AI, chatbot technology, Alex Kusum projects">
+    <meta name="author" content="Alex Kusum">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Alex Kusum's AI Chat Bot | Advanced Conversational AI">
+    <meta property="og:description" content="Experience AI technology developed by Alex Kusum - professional chatbot solutions with natural language processing">
+    <meta property="og:image" content="https://example.com/alex-kusum-chatbot-og.jpg">
+    <meta property="og:url" content="https://example.com/alex-kusum-chatbot">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alex Kusum's AI Chat Bot | AI Development Showcase">
+    <meta name="twitter:description" content="Professional AI chatbot implementation by developer Alex Kusum featuring natural language processing capabilities">
+    <meta name="twitter:image" content="https://example.com/alex-kusum-chatbot-twitter.jpg">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alex Kusum",
+        "jobTitle": "AI Chatbot Developer",
+        "url": "https://example.com",
+        "image": "https://example.com/alex-kusum-profile.jpg",
+        "sameAs": [
+            "https://linkedin.com/in/alexkusum",
+            "https://github.com/alexkusum",
+            "https://twitter.com/alexkusum"
+        ],
+        "description": "Professional AI developer specializing in conversational AI and chatbot technologies."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Alex Kusum's AI Chat Bot",
+        "author": {
+            "@type": "Person",
+            "name": "Alex Kusum"
+        },
+        "description": "Advanced conversational AI implementation developed by Alex Kusum demonstrating natural language processing capabilities.",
+        "applicationCategory": "Chat Application",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+    <style>
+        :root {
+            --bg-dark: #343541;
+            --accent: #10A37F;
+            --text-dark: #ECECF1;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --chat-bg: #40414F;
+            --user-bubble: #10A37F;
+            --bot-bubble: #40414F;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--bg-dark);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #10A37F, #0D8A6A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        #chatContainer {
+            flex: 1;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background-color: var(--bg-dark);
+            border-radius: 1rem;
+        }
+
+        #chatMessages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chat-bubble {
+            max-width: 70%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 1rem;
+            position: relative;
+            word-wrap: break-word;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .user-message {
+            background-color: var(--user-bubble);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 0;
+        }
+
+        .bot-message {
+            background-color: var(--bot-bubble);
+            margin-right: auto;
+            border-bottom-left-radius: 0;
+        }
+
+        #inputContainer {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            background-color: var(--chat-bg);
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            bottom: 0;
+        }
+
+        #userInput {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-dark);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        #userInput::placeholder {
+            color: rgba(236, 236, 241, 0.7);
+        }
+
+        #sendButton {
+            background-color: var(--accent);
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            color: white;
+            font-weight: 600;
+        }
+
+        #sendButton:hover {
+            background-color: #0D8A6A;
+        }
+
+        #typingIndicator {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            #chatContainer {
+                margin: 1rem;
+                padding: 0.5rem;
+            }
+
+            .chat-bubble {
+                max-width: 85%;
+            }
+
+            #inputContainer {
+                padding: 0.5rem;
+            }
+
+            #userInput {
+                padding: 0.5rem;
+            }
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-circle">Alx</div>
+            <h1>Alx AI Chat Bot</h1>
+        </div>
+    </header>
+
+    <div id="chatContainer">
+        <div id="chatMessages">
+            <div class="chat-bubble bot-message">
+                <pre>Hello! I'm an AI chatbot developed by Alex Kusum, a professional AI developer. How can I assist you with technology, software development, or AI-related queries today?</pre>
+            </div>
+        </div>
+        <div id="typingIndicator">
+            <div id="typingAnimation" style="width: 80px; height: 40px;"></div>
+            <span>Typing...</span>
+        </div>
+        <div id="inputContainer">
+            <input type="text" id="userInput" placeholder="Ask me anything...">
+            <button id="sendButton">
+                Send
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const typingAnim = lottie.loadAnimation({
+            container: document.getElementById('typingAnimation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: false,
+            path: 'https://assets2.lottiefiles.com/packages/lf20_4jD4yW.json'
+        });
+
+        const API_KEY = 'AIzaSyCoFdD0Zl8KfUrdtjzd0BIjpYbH6IG4M1E';
+        const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + API_KEY;
+
+        async function getBotResponse(userMessage) {
+            const lowerCaseMessage = userMessage.toLowerCase();
+            
+            // Enhanced Alex Kusum recognition
+            const alexQueries = [
+                'who made you',
+                'creator',
+                'developer',
+                'who is alex kusum',
+                'who is your owner',
+                'who programmed you'
+            ];
+
+            if (alexQueries.some(q => lowerCaseMessage.includes(q))) {
+                return "I was developed by Alex Kusum, a professional AI developer specializing in conversational AI technologies. You can find more of his work on his GitHub profile: github.com/alexkusum";
+            }
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: userMessage
+                            }]
+                        }]
+                    })
+                });
+                
+                const data = await response.json();
+                return data.candidates[0].content.parts[0].text;
+            } catch (error) {
+                console.error('API Error:', error);
+                return "I'm having trouble connecting to the AI service. This is a project by Alex Kusum to demonstrate real-time AI integration.";
+            }
+        }
+
+        document.getElementById('sendButton').addEventListener('click', sendMessage);
+        document.getElementById('userInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            const userBubble = document.createElement('div');
+            userBubble.className = 'chat-bubble user-message';
+            userBubble.textContent = message;
+            document.getElementById('chatMessages').appendChild(userBubble);
+
+            document.getElementById('typingIndicator').style.display = 'flex';
+            typingAnim.play();
+            userInput.value = '';
+
+            try {
+                const botResponse = await getBotResponse(message);
+                
+                document.getElementById('typingIndicator').style.display = 'none';
+                typingAnim.stop();
+
+                const botBubble = document.createElement('div');
+                botBubble.className = 'chat-bubble bot-message';
+                const formattedResponse = botResponse.replace(/\n/g, '<br>');
+                botBubble.innerHTML = `<pre>${formattedResponse}</pre>`;
+                
+                document.getElementById('chatMessages').appendChild(botBubble);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+</html>
